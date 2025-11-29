@@ -5,18 +5,25 @@ server:
 lavalink:
   server:
     password: "yourpassword"
+
+    # Disable old default YouTube source
     sources:
-      youtube: true
+      youtube: false
       bandcamp: true
       soundcloud: true
       twitch: true
       vimeo: true
       http: true
       local: false
-    bufferDurationMs: 400
-    frameBufferDurationMs: 5000
-    trackStuckThresholdMs: 10000
-    useSeekGhosting: true
+
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.9.1"
+
+youtube:
+  enabled: true
+  allowSearch: true
+  # yt-dlp backend (recommended)
+  allowYtDlp: true
 
 metrics:
   prometheus:
